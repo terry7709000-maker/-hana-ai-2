@@ -22,4 +22,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run Hana AI
+        env:
+          DOMEGGOOK_API_KEY: ${{ secrets.DOMEGGOOK_API_KEY }}
         run: python hana_ai.py
