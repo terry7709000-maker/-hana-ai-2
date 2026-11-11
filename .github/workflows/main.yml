@@ -1,6 +1,8 @@
 name: Hana AI Auto Run
 
 'on':
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
@@ -15,11 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Run Hana AI
         run: python hana_ai.py
